@@ -1,5 +1,6 @@
 function calcularTarifa(tipoVehiculo, hora, esFeriado){
     let vehiculo = tipoVehiculo.toUpperCase();
+    let precio = 0; // 📌 Corregido: declarar siempre la variable 'precio' con let para evitar globales implícitas.
 
     switch (vehiculo) {
     case "MOTO":
@@ -27,33 +28,38 @@ function calcularTarifa(tipoVehiculo, hora, esFeriado){
     return precio;
 }
 
+// 📌 Feedback Docente (Profesor Axel):
+// 1. Declaración de variables: Acordate de declarar 'let precio = 0;' al inicio de la función. En tu código original faltaba el 'let', lo que crea una variable global accidental.
+// 2. Funciones auxiliares: Sacamos la declaración de 'function numeroAleatorio' de adentro del bucle 'for' a nivel general para evitar redeclarar la función en cada iteración del bucle.
+
+function numeroAleatorio(min, max){
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 function simularFilaCabina(cantidadVehiculos){
     let montoFinal = 0;
-    for(let i = 1; i <= cantidadVehiculos; i++){
     let opciones = ["moto", "auto", "camion"];
-    let opcionAleatoria = Math.floor(Math.random() * opciones.length);
-    let vehiculo = opciones[opcionAleatoria];
 
-    function numeroAleatorio(min, max){
-        let hora = Math.floor(Math.random() * (max-min + 1) + min);
-        return hora;
+    for(let i = 1; i <= cantidadVehiculos; i++){
+        let opcionAleatoria = Math.floor(Math.random() * opciones.length);
+        let vehiculo = opciones[opcionAleatoria];
+        let horaFinal = numeroAleatorio(1, 23);
+
+        let opcionesFeriado = [true, false];
+        let opcionAleatoriaFeriado = Math.floor(Math.random() * opcionesFeriado.length);
+        let feriado = opcionesFeriado[opcionAleatoriaFeriado];
+
+        let tarifa = calcularTarifa(vehiculo, horaFinal, feriado);
+        montoFinal += tarifa;
+        
+        console.log("Intento " + i +": " 
+            + " Vehiculo: " + vehiculo 
+            + " | Hora: " + horaFinal 
+            + " | Feriado: " + feriado 
+            + " | Tarifa cobrada: $" + tarifa);
     }
-    let horaFinal = numeroAleatorio(1,23);
-
-    let opcionesFeriado = [true, false];
-    let opcionAleatoriaFeriado = Math.floor(Math.random() * opcionesFeriado.length);
-    let feriado = opcionesFeriado[opcionAleatoriaFeriado];
-
-    let tarifa = calcularTarifa(vehiculo, horaFinal, feriado);
-    montoFinal = montoFinal + tarifa;
-    
-    console.log("Intento " + i +": " 
-        + " Vehiculo: " + vehiculo 
-        + " | Hora: " + horaFinal 
-        + " | Feriado: " + feriado 
-        + " | Tarifa cobrada: " + tarifa);
-}
-console.log("Monto Final: " + montoFinal);
+    console.log("Monto Final: $" + montoFinal);
+    return montoFinal;
 }
 
 simularFilaCabina(3);

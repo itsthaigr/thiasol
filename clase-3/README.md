@@ -1,14 +1,20 @@
 # Resolución de Ejercicios JavaScript
+**Alumno:** FRETE, Thiago Adrián  
+**Email:** fretethiago08@gmail.com  
 
-## Conceptos y Herramientas de JavaScript Utilizados
+---
 
-* **Variables y Tipos de Datos:** Uso de `let`, `const`, números, cadenas de texto, booleanos y arreglos.
-* **Funciones:** Declaración de funciones tradicionales, funciones anónimas y funciones flecha (`=>`).
-* **Estructuras Condicionales:** `if`, `else if`, `else` y `switch` para la toma de decisiones.
-* **Operadores Lógicos y Matemáticos:** Evaluaciones con `&&`, `||`, `%`, operadores de comparación (`===`, `>=`, `<=`) y cálculos con precedencia.
-* **Estructuras de Repetición:** Bucles `for`, `do...while` e iteración sobre cadenas y arreglos.
-* **Métodos y Funciones Nativas:**
-  * Métodos de String y Array: `.toUpperCase()`, `.length`, `.map()`, `.toFixed()`.
-  * Conversión de tipos: `parseInt()`, `parseFloat()`, `Number()`.
-  * Objeto Math: `Math.random()`, `Math.floor()`.
-* **Manejo de Entrada/Salida:** Impresión de resultados y depuración mediante `console.log`.
+# Nota por Profesor Axel:
+
+¡Excelente trabajo, Thiago! Resolviste la totalidad de los calentamientos, ejercicios de integración y el desafío integrador de peaje.js con muy buena lógica.
+
+**Puntos destacados:**
+- Correcto uso de `switch` y métodos de string como `.toUpperCase()`.
+- Buena simulación aleatoria de la fila en `simularFilaCabina`.
+- Excelente documentación inicial en el `README.md`.
+
+**Recomendaciones docentes inyectadas en peaje.js:**
+1. Recordá declarar siempre las variables con `let` o `const` (en `peaje.js` faltaba `let precio = 0`, lo que generaba una variable global implícita).
+2. Evitamos declarar funciones dentro de un bucle `for` (como `numeroAleatorio`), es mejor tener la función afuera para no recrearla en cada vuelta del loop.
+
+**Calificación Clase 03:** ✅ Corregido (10/10)
