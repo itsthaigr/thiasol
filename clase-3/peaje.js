@@ -1,3 +1,15 @@
+// ==============================================================================
+// Desafío Semanal Obligatorio: Peaje Inteligente (Telepase)
+// Consigna: Implementar la facturación automática de una cabina de peaje:
+// 1. `calcularTarifa(tipoVehiculo, hora, esFeriado)`:
+//    - Tarifas base: "moto": $150, "auto": $300, "camion": $600.
+//    - Hora pico (8 a 10 y 17 a 19 inclusive): +30% recargo si NO es feriado.
+//    - Aceptar mayúsculas/minúsculas. Si es inválido, advertir y retornar 0.
+// 2. `simularFilaCabina(cantidadVehiculos)`:
+//    - Simular aleatoriamente tipo, hora (0-23) y feriado (true/false).
+//    - Mostrar detalle de cada intento en consola y retornar total recaudado.
+// ==============================================================================
+
 function calcularTarifa(tipoVehiculo, hora, esFeriado){
     let vehiculo = tipoVehiculo.toUpperCase();
     let precio = 0; // 📌 Corregido: declarar siempre la variable 'precio' con let para evitar globales implícitas.
@@ -29,7 +41,7 @@ function calcularTarifa(tipoVehiculo, hora, esFeriado){
 }
 
 // 📌 Feedback Docente (Profesor Axel):
-// 1. Declaración de variables: Acordate de declarar 'let precio = 0;' al inicio de la función. En tu código original faltaba el 'let', lo que crea una variable global accidental.
+// 1. Declaración de variables: Acordate de declarar 'let precio = 0' al inicio de la función. En tu código original faltaba el 'let', lo que crea una variable global accidental.
 // 2. Funciones auxiliares: Sacamos la declaración de 'function numeroAleatorio' de adentro del bucle 'for' a nivel general para evitar redeclarar la función en cada iteración del bucle.
 
 function numeroAleatorio(min, max){
