@@ -1,2 +1,2 @@
-Nombre y apellido del alumno:
-Email:
+Nombre: Frete Thiago
+email: fretethiago08@gmail.com
